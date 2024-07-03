@@ -1,0 +1,225 @@
+#include<iostream>
+#include "Header.h"
+using namespace std;
+
+
+int main()
+{
+	int n,x;
+	cout << "|Press 1 for string length|" << endl;
+	cout << "|Press 2 for string concatenation|" << endl;
+	cout << "|Press 3 for string copy|" << endl;
+	cout << "|Press 4 for string edit|" << endl;
+	cout << "|Press 5 for addition|" << endl;
+	cout << "|Press 6 for subtraction|" << endl;
+	cout << "|Press 7 for multiplication|" << endl;
+	cout << "|Press 8 for division|" << endl;
+	cout << "|Press 9 for power|" << endl;
+	cout << "|Press 10 for bubble sort|" << endl;
+	cout << "|Press 11 for insertion sort|" << endl;
+	cout << "|Press 12 for selection sort|" << endl;
+	cout << "|Press 13 for linear search|" << endl;
+	cout << "|Press 14 for binary search|" << endl;
+	cout << "|Press 15 to exit|" << endl;
+
+
+	cin >> n;
+
+	if (n == 1)
+	{
+		char arr[50];
+		cout << "Enter string1 : ";
+		cin.ignore();
+		cin.getline(arr, 50);
+		cout << "Length: " << StringLength(arr) << endl;
+	}
+	else if (n == 2)
+	{
+		string a;
+		string b;
+		cout << "Enter string1 : ";
+		cin.ignore();
+		getline(cin, a);
+		cout << "Enter string2 : ";
+		getline(cin, b);
+		cout << concatenation(a, b) << endl;
+	}
+	else if (n == 3)
+	{
+		string a;
+		cout << "Enter string1 : ";
+		cin.ignore(1, '\n');
+		getline(cin, a);
+		string b;
+		StringCopy(a, b);
+		cout << "Copied string: " << b << endl;
+
+	}
+	else if (n == 4)
+	{
+		string a;
+		cin.ignore();
+		cout << "Enter string: ";
+		getline(cin, a);
+		char x, y;
+		cout << "Enter x: ";
+		cin >> x;
+		cout << "Enter y: ";
+		cin >> y;
+		cout << "Replaced string: " << StringReplace(a, x, y) << endl;
+
+	}
+	else if (n == 5)
+	{
+		int x, y;
+		cout << "Enter x: ";
+		cin >> x;
+		cout << "Enter y: ";
+		cin >> y;
+		cout << "x + y = " << sum(x, y) << endl;
+	}
+	else if (n == 6)
+	{
+		int x, y;
+		cout << "Enter x: ";
+		cin >> x;
+		cout << "Enter y: ";
+		cin >> y;
+		cout << "x - y = " << subtraction(x, y) << endl;
+	}
+	else if (n == 7)
+	{
+		int x, y;
+		cout << "Enter x: ";
+		cin >> x;
+		cout << "Enter y: ";
+		cin >> y;
+		cout << "x * y = " << multiplication(x, y) << endl;
+	}
+	else if (n == 8)
+	{
+		int x, y;
+		cout << "Enter x: ";
+		cin >> x;
+		cout << "Enter y: ";
+		cin >> y;
+		if (y == 0)
+		{
+			cout << "error division by zero" << endl;
+			return 0;
+		}
+		cout << "x / y = " << division(x, y) << endl;
+	}
+	else if (n == 9)
+	{
+		int x, y;
+		cout << "Enter x: ";
+		cin >> x;
+		cout << "Enter y: ";
+		cin >> y;
+		cout << "x ^ y = " << power(x, y) << endl;
+	}
+	else if (n == 10)
+	{
+		int n = 0;
+		int arr[100];
+		cout << "Enter length of data(MAX 100): ";
+		cin >> n;
+		if (n < 1 || n>100)
+		{
+			cout << "invalid size" << endl;
+		}
+		cout << "enter array" << endl;
+		for (int i = 0; i < n; i += 1)
+		{
+			cin >> arr[i];
+		}
+		bubbleSort(arr, n);
+		for (int j = 0; j < n; j++)
+			cout << arr[j] << " ";
+	}
+
+	else if (n == 11)
+	{
+		int n = 0;
+		int arr[100];
+		cout << "Enter length of data(MAX 100): ";
+		cin >> n;
+		if (n < 1 || n>100)
+		{
+			cout << "invalid size" << endl;
+		}
+		cout << "enter array" << endl;
+		for (int i = 0; i < n; i += 1)
+		{
+			cin >> arr[i];
+		}
+		insertionSort(arr, n);
+		for (int j = 0; j < n; j++)
+			cout << arr[j] << " ";
+	}
+	else if (n == 12)
+	{
+		int n = 0;
+		int arr[100];
+		cout << "Enter length of data(MAX 100): ";
+		cin >> n;
+		if (n < 1 || n>100)
+		{
+			cout << "invalid size" << endl;
+		}
+		cout << "enter array" << endl;
+		for (int i = 0; i < n; i += 1)
+		{
+			cin >> arr[i];
+		}
+		selectionSort(arr, n);
+		for (int j = 0; j < n; j++)
+			cout << arr[j] << " ";
+	 }
+		
+	else if (n == 13)
+	{
+		int n = 0;
+		int arr[100];
+		cout << "Enter length of data(MAX 100): ";
+		cin >> n;
+		if (n < 1 || n>100)
+		{
+			cout << "invalid size" << endl;
+		}
+		cout << "enter array" << endl;
+		for (int i = 0; i < n; i += 1)
+		{
+			cin >> arr[i];
+		}
+		cout << "enter the number that you want to find" << endl;
+		cin >> x;
+		cout<<"the number is at the index "<<search(arr, n, x);
+		
+	}
+	else if (n == 14)
+	{
+		int n = 0;
+		int arr[100];
+		cout << "Enter length of data(MAX 100): ";
+		cin >> n;
+		if (n < 1 || n>100)
+		{
+			cout << "invalid size" << endl;
+		}
+		cout << "enter array" << endl;
+		for (int i = 0; i < n; i += 1)
+		{
+			cin >> arr[i];
+		}
+		cout << "enter the number that you want to find" << endl;
+		cin >> x;
+		bsearch(arr, n,x);
+		cout << "the value is at index " << bsearch(arr, n, x) << endl;
+	}
+	else
+		cout << "Invalid Input" << endl;
+	
+	return 0;
+}
